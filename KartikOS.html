@@ -1018,7 +1018,7 @@ function initSnakeCanvas(){const cv=document.getElementById('s-c');if(!cv)return
 function rfSnake(){let f;do{f={x:~~(Math.random()*SCOLS),y:~~(Math.random()*SROWS)}}while(snakeState.snake.some(s=>s.x===f.x&&s.y===f.y));return f}
 function startSnakeGame(){if(!initSnakeCanvas())return;document.getElementById('s-ov').style.display='none';resetSnakeState();snakeState.run=true;snakeState.started=true;if(snakeIV)clearInterval(snakeIV);snakeIV=setInterval(snakeTick,125)}
 function restartSnake(){if(snakeIV)clearInterval(snakeIV);if(!initSnakeCanvas())return;const ov=document.getElementById('s-ov');if(ov)ov.style.display='none';resetSnakeState();snakeState.run=true;snakeState.started=true;document.getElementById('s-sc').textContent='0';snakeIV=setInterval(snakeTick,125)}
-function resetSnakeState(){snakeState.snake=[{x:11,y:11}];snakeState.dir={x:0,y:0};snakeState.sc=0;snakeState.run=false;snakeState.started=false;snakeState.food=rfSnake();snakeState.hue=0}
+function resetSnakeState(){snakeState.snake=[{x:11,y:11}];snakeState.dir={x:1,y:0};snakeState.sc=0;snakeState.run=false;snakeState.started=false;snakeState.food=rfSnake();snakeState.hue=0}
 function snakeTick(){
   if(!document.getElementById('s-c')){clearInterval(snakeIV);return}
   const S=snakeState;if(!S.run)return;
